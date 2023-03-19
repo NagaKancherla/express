@@ -1,11 +1,15 @@
-/*!
- * express
- * Copyright(c) 2009-2013 TJ Holowaychuk
- * Copyright(c) 2013 Roman Shtylman
- * Copyright(c) 2014-2015 Douglas Christopher Wilson
- * MIT Licensed
- */
+'use strict'
 
-'use strict';
+var express = require('../../');
 
-module.exports = require('./lib/express');
+var app = module.exports = express()
+
+app.get('/', function(req, res){
+  res.send('Hello World');
+});
+
+/* istanbul ignore next */
+if (!module.parent) {
+  app.listen(3000);
+  console.log('Express started on port 3000');
+}
